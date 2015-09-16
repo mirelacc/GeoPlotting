@@ -21,14 +21,14 @@ invisible(text(getSpPPolygonsLabptSlots(gadm_new), labels=as.character(gadm_new$
 # Customers <- read.csv2(file="Z:/R/DATA/OUTPUT/---CUSTOMER FILE.csv---")
 
 # Get staff file
-Customers <- read.csv2(file="your_path/WhatEver.csv")
+WhatEver <- read.csv2(file="your_path/WhatEver.csv")
 
 
 # Plot Bookit Customers per Municipality ----------------------------------
 
 
 # Collapse Customer data file
-Cust <- aggregate(Customers$Count, by=list(Zipcode=Customers$PP4), FUN=sum, na.rm = TRUE)
+Cust <- aggregate(WhatEver$Count, by=list(Zipcode=WhatEvers$PP4), FUN=sum, na.rm = TRUE)
 colnames(Cust) <- c("Zipcode","Count")
 # Add Municipalities to Customer data
 Cust1 <- merge(Zipcode,Count, by.x="X4PP", by.y="Zipcode", all.x=TRUE)
