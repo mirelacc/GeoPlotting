@@ -27,12 +27,12 @@ WhatEver <- read.csv2(file="your_path/WhatEver.csv")
 # Plot Bookit Customers per Municipality ----------------------------------
 
 
-# Collapse Customer data file
+# Collapse Whatever data file
 Cust <- aggregate(WhatEver$Count, by=list(Zipcode=WhatEvers$PP4), FUN=sum, na.rm = TRUE)
 colnames(Cust) <- c("Zipcode","Count")
-# Add Municipalities to Customer data
+# Add Municipalities to WhatEver data
 Cust1 <- merge(Zipcode,Count, by.x="X4PP", by.y="Zipcode", all.x=TRUE)
-# Collapse Customer data file
+# Collapse WharEver data file
 Cust2 <- aggregate(Cust1$Count, by=list(Municipality=Cust1$Municipality), FUN=sum, na.rm = TRUE)
 colnames(Cust2) <- c("Municipality","Count")
 # Add ID's
