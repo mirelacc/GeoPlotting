@@ -3,9 +3,9 @@ library(RColorBrewer)
 # Import geo files --------------------------------------------------------
 
 
-load(file="Z:/R/DATA/INPUT/gadm_new.RDATA")
-load(file="Z:/R/DATA/INPUT/Municipalities.RData")
-Zipcode <- read.csv2("Z:/R/DATA/INPUT/Zipcode.csv")
+load(file="your_path/gadm_new.RDATA")
+load(file="your_path/Municipalities.RData")
+Zipcode <- read.csv2("your_path/Zipcode.csv")
 
 # show labels
 plot(gadm_new)
@@ -21,7 +21,7 @@ invisible(text(getSpPPolygonsLabptSlots(gadm_new), labels=as.character(gadm_new$
 # Customers <- read.csv2(file="Z:/R/DATA/OUTPUT/---CUSTOMER FILE.csv---")
 
 # Get staff file
-Customers <- read.csv2(file="Z:/R/DATA/INPUT/Pers.csv")
+Customers <- read.csv2(file="your_path/WhatEver.csv")
 
 
 # Plot Bookit Customers per Municipality ----------------------------------
@@ -29,7 +29,7 @@ Customers <- read.csv2(file="Z:/R/DATA/INPUT/Pers.csv")
 
 # Collapse Customer data file
 Cust <- aggregate(Customers$Count, by=list(Zipcode=Customers$PP4), FUN=sum, na.rm = TRUE)
-colnames(Cust) <- c("Zipcode","Customers")
+colnames(Cust) <- c("Zipcode","WhatEver")
 # Add Municipalities to Customer data
 Cust1 <- merge(Zipcode,Cust, by.x="X4PP", by.y="Zipcode", all.x=TRUE)
 # Collapse Customer data file
@@ -78,7 +78,7 @@ sub <- paste("1 januari 2015   n = ",sum(Cust4$Customers),sep="")
 
 
 # plot map with colours and save as PNG
-png(file='Z:/R/DATA/OUTPUT/Staff.png',width=1000,height=1250,units="px",bg = "transparent")
+png('file=your_path/WhatEver.png',width=1000,height=1250,units="px",bg = "transparent")
 spplot(gadm_cust,
        "col_cust",
        col.regions=myPaletteCust,
